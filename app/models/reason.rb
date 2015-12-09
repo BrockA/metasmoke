@@ -14,4 +14,9 @@ class Reason < ActiveRecord::Base
     count = self.feedbacks.where("feedback_type LIKE '%fp%'").group("posts.id").count.count
     return (count.to_f / self.posts.count.to_f).to_f
   end
+
+  def ignore_percentage
+    count = self.feedbacks.where("feedback_type LIKE '%ignore%'").group("posts.id").count.count
+    return (count.to_f / self.posts.count.to_f).to_f
+  end
 end
