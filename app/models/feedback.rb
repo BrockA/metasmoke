@@ -7,4 +7,7 @@ class Feedback < ActiveRecord::Base
   def is_negative?
     self.feedback_type.include? "fp"
   end
+  def is_ignored?
+    self.feedback_type.include? "ignore"
+  end
 end
